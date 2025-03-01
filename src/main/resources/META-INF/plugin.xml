@@ -1,0 +1,17 @@
+<idea-plugin>
+    <id>dev.abdus.CommitConventions</id>
+    <name>Commit Message Template</name>
+    <vendor>Abdus</vendor>
+    <description>Adds "Closes: #XXXX" to commit messages based on branch name</description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>Git4Idea</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable instance="dev.abdus.commitconventions.CommitTemplateSettingsConfigurable"
+                                 id="dev.abdus.commitconventions.CommitTemplateSettingsConfigurable"
+                                 displayName="Commit Template Settings"/>
+        <applicationService serviceImplementation="dev.abdus.commitconventions.CommitTemplateSettings"/>
+        <vcs.commitMessageProvider implementation="dev.abdus.commitconventions.CommitMessageProvider"/>
+    </extensions>
+</idea-plugin>
